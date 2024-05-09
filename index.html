@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="./mayer.css">
+    <link rel="stylesheet" href="./iconfont.css">
+</head>
+<body>
+<div class="audio-wrap">
+    <div class="audio-player">
+        <audio id="audio">
+            <source src="">
+        </audio>
+    </div>
+    <input type="range" id="range" min="0" max="300" value="0">
+    <i class="iconfont icon-xiayishou" id="next"></i>
+    <i class="iconfont icon-shangyishouge" id="up"></i>
+    <i class="iconfont icon-bofang" id="start"></i>
+    <i class="iconfont icon-zanting" id="stop"></i>
+    <i class="iconfont icon-xunhuanbofang" id="random"></i>
+    <i class="iconfont icon-wendangwenjian" id="file"></i>
+
+</div>
+
+<!-- 音乐列表 -->
+<div class="audio-listd">
+    <ul id="audio-list" class="audio-list">
+    </ul>
+</div>
+<script src="./index.js"></script>
+<script src="./iconfont.js"></script>
+</body>
+</html>

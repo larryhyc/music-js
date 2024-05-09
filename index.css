@@ -1,0 +1,67 @@
+.audio-wrap{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.7);
+    align-items: center;
+    backdrop-filter: blur(10px);
+}
+
+.audio-wrap input{
+    margin-left: 50px;
+    width: 250px;
+}
+
+.audio-wrap .iconfont{
+    font-size: 30px;
+    margin: 0px 10px;
+}
+
+.iconfont:hover{
+    transform: scale(1.2);
+    transition: all 0.3s;
+}
+
+body{
+    background-color: #66ccff;
+}
+
+html::-webkit-scrollbar {
+    display: none;
+}
+
+.audio-listd{
+    width: 100%;
+    height: 760px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    scrollbar-width: none;
+}
+
+.audio-list li {
+    padding: 5px;
+    margin: 3px;
+    border-top: 1px solid rgba(255, 255, 255, 0.7);
+    list-style: none;
+}
+
+.audio-list {
+    background-color: rgba(255,255,255,0.5);
+    overflow: hidden;
+    backdrop-filter: blur(15px);
+    display: flex;
+    flex-direction: column;
+}
+
+.audio-list li:hover {
+    background-color: pink;
+    color: white;
+    cursor: pointer;
+}
+
+.audio-list li.playing {
+    background-color: pink; 
+    color: white;
+}

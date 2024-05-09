@@ -1,0 +1,51 @@
+{
+  "id": "4530706",
+  "name": "miusic",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "20736099",
+      "name": "下一首",
+      "font_class": "xiayishou",
+      "unicode": "e6ae",
+      "unicode_decimal": 59054
+    },
+    {
+      "icon_id": "20736100",
+      "name": "播放",
+      "font_class": "bofang",
+      "unicode": "e6af",
+      "unicode_decimal": 59055
+    },
+    {
+      "icon_id": "20736103",
+      "name": "暂停",
+      "font_class": "zanting",
+      "unicode": "e6b0",
+      "unicode_decimal": 59056
+    },
+    {
+      "icon_id": "20736122",
+      "name": "文档文件",
+      "font_class": "wendangwenjian",
+      "unicode": "e6b1",
+      "unicode_decimal": 59057
+    },
+    {
+      "icon_id": "20784230",
+      "name": "上一首歌",
+      "font_class": "shangyishouge",
+      "unicode": "e6bf",
+      "unicode_decimal": 59071
+    },
+    {
+      "icon_id": "20784231",
+      "name": "循环播放",
+      "font_class": "xunhuanbofang",
+      "unicode": "e6c0",
+      "unicode_decimal": 59072
+    }
+  ]
+}
