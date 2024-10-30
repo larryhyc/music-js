@@ -40,7 +40,44 @@ fileButton.addEventListener('click', async function () {
                     currentIndex = (currentIndex + 1) % playlist.length;
                     play(currentIndex);
                 }
-
+                // 当当前音频在播放的时候把当前音频可视化
+                audio.onplay = () => {
+                    // 创建一个音频上下文
+                    const audioCtx = new AudioContext();
+                    //
+                    const source = audioCtx.createMediaElementSource(audio);
+                    const analyser = audioCtx.createAnalyser();
+                    analyser.fftSize = 64;
+                    const data = new Uint8Array(analyser.frequencyBinCount);
+                    source.connect(analyser);
+                    analyser.connect(audioCtx.destination);
+                    // 初始化画布
+                    const canvas = document.querySelector('.canvas');
+                    const ctx = canvas.getContext('2d');
+                    // 获取画布宽高
+                    const WIDTH = canvas.width;
+                    const HEIGHT = canvas.height;
+                    const draw = () => {
+                        analyser.getByteFrequencyData(data);
+                        // 清除画布
+                        ctx.clearRect(0, 0, WIDTH, HEIGHT);
+                        //绘制频谱
+                        for (let i = 0; i < data.length; i++) {
+                            // 柱形图高度
+                            const barHeight = data[i] / 255 * HEIGHT;
+                            // 每根柱子均分画布宽度
+                            const barWidth = canvas.width / data.length;
+                            //柱形图颜色
+                            ctx.fillStyle = '#66ccff';
+                            const x = i * barWidth;
+                            const y = canvas.height - barHeight;
+                            ctx.fillRect(x, y, barWidth, barHeight);
+                        }
+                        //设置动画
+                        requestAnimationFrame(draw);
+                    }
+                    draw();
+                }
             }
 
             // 随机播放函数
