@@ -47,7 +47,7 @@ fileButton.addEventListener('click', async function () {
                     //
                     const source = audioCtx.createMediaElementSource(audio);
                     const analyser = audioCtx.createAnalyser();
-                    analyser.fftSize = 64;
+                    analyser.fftSize = 32;
                     const data = new Uint8Array(analyser.frequencyBinCount);
                     source.connect(analyser);
                     analyser.connect(audioCtx.destination);
@@ -57,19 +57,28 @@ fileButton.addEventListener('click', async function () {
                     // 获取画布宽高
                     const WIDTH = canvas.width;
                     const HEIGHT = canvas.height;
+                    // 柱子之间的间隔
+                    const barSpacing = 5;
                     const draw = () => {
                         analyser.getByteFrequencyData(data);
+
+                        // 渐变
+                        const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
+                        gradient.addColorStop(0, "pink");
+                        gradient.addColorStop(1, "skyblue");
+
+                        // 每根柱子均分画布宽度
+                        const barWidth = (WIDTH - (data.length - 1) * barSpacing) / data.length; 
+                        
                         // 清除画布
                         ctx.clearRect(0, 0, WIDTH, HEIGHT);
                         //绘制频谱
                         for (let i = 0; i < data.length; i++) {
                             // 柱形图高度
                             const barHeight = data[i] / 255 * HEIGHT;
-                            // 每根柱子均分画布宽度
-                            const barWidth = canvas.width / data.length;
                             //柱形图颜色
-                            ctx.fillStyle = '#66ccff';
-                            const x = i * barWidth;
+                            ctx.fillStyle = gradient;
+                            const x = i * (barWidth + barSpacing);;
                             const y = canvas.height - barHeight;
                             ctx.fillRect(x, y, barWidth, barHeight);
                         }
